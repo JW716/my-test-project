@@ -10,5 +10,8 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(subtract(5, 3), 2)
         self.assertEqual(subtract(0, 5), -5)
 
+    def test_add_negative_numbers(self):
+        self.assertEqual(add(-5, -3), -8)
+
 if __name__ == '__main__':
     unittest.main()
