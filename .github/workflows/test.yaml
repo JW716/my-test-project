@@ -19,5 +19,14 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: 运行测试
-      run: python test_calculator.py
+    - name: 安装 pytest（内置 JUnit 报告支持）
+      run: pip install pytest
+
+    - name: 运行测试并生成 JUnit 报告
+      run: pytest test_calculator.py --junitxml=test-report.xml
+
+    - name: 上传测试报告
+      uses: actions/upload-artifact@v4
+      with:
+        name: pytest-test-report
+        path: test-report.xml
